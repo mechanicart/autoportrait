@@ -1,8 +1,10 @@
+const path = require('path');
+
 module.exports = {
   context: __dirname,
-  entry: './src/main.ts',
+  entry: path.join(__dirname, 'src', 'index.tsx'),
   output: {
-    path: __dirname + '/public',
+    path: path.resolve(__dirname, 'dist'),
     filename: 'build.js'
   },
   mode: 'development',
