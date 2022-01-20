@@ -10,7 +10,7 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|tsx|js)\"",
+    "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|tsx)\"",
     "lint-fix": "eslint src --ignore-path .gitignore --quiet --fix \"**/*.+(ts|tsx)\"",
     "validate": "npm-run-all --parallel check-format lint",
     "prepare": "husky install",

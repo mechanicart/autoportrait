@@ -16,12 +16,15 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
     'airbnb',
     'airbnb-typescript'
   ],
   rules: {
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/function-component-definition': [
       2,
       {
@@ -44,7 +47,8 @@ module.exports = {
     ]
   },
   plugins: [
-    'react'
+    'react',
+    'react-hooks'
   ],
   settings: {
     react: {
