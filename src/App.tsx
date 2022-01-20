@@ -1,3 +1,3 @@
 import { FC } from 'react';
 
-export const App: FC = () => <h1>Hello World</h1>;
+export const App: FC = () => <h1>Hello 👋 ! I&apos;m Artem!</h1>;
