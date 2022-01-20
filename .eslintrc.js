@@ -11,8 +11,11 @@ module.exports = {
     ]
   },
   extends: [
-    'eslint:recommended',
+    "prettier",
+    "prettier/prettier",
+    "plugin:prettier/recommended",
     'eslint-config-prettier',
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
