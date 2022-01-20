@@ -1,3 +1,8 @@
 import { FC } from 'react';
+import styled from 'styled-components/macro';
 
-export const App: FC = () => <h1>Hello 👋 ! I&apos;m Artem!</h1>;
+const Header = styled.h1`
+  font-size: 2em;
+`;
+
+export const App: FC = () => <Header>Hello 👋 ! I&apos;m Artem!</Header>;

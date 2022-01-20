@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   context: __dirname,
   entry: path.join(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   mode: 'development',
   resolve: {
@@ -18,7 +18,7 @@ module.exports = {
       extensions: ['.tsx', '.ts', '.js'],
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
+      template: path.join(__dirname, 'public', 'index.html'),
     }),
   ],
   module: {
@@ -27,15 +27,15 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' }
-        ]
-      }
-    ]
+          { loader: 'babel-loader' },
+        ],
+      },
+    ],
   },
   devtool: 'inline-source-map',
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     hot: true,
-    port: 9000
-  }
-}
+    port: 9000,
+  },
+};
