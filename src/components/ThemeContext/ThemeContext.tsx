@@ -4,12 +4,12 @@ import { darkTheme, lightTheme } from './theme';
 import { useThemeContext } from './useThemeContext';
 
 export const ThemeContext: FC = ({ children }) => {
-  const { theme, toggleTheme } = useThemeContext();
+  const { theme } = useThemeContext();
   const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
   return (
     <ThemeProvider theme={themeMode}>
-      <button
+      {/* <button
         type='button'
         tabIndex={0}
         onKeyDown={toggleTheme}
@@ -24,7 +24,7 @@ export const ThemeContext: FC = ({ children }) => {
             🌜
           </span>
         )}
-      </button>
+      </button> */}
       {children}
     </ThemeProvider>
   );
