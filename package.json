@@ -12,16 +12,15 @@
     "check-format": "npm run prettier -- --list-different",
     "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|tsx)\"",
     "validate": "npm-run-all --parallel check-format lint",
-    "prepare": "husky install",
-    "lint-staged": {
-      "**/*.+(ts|tsx)": [
-        "eslint"
-      ],
-      "**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html)": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.+(ts|tsx)": [
+      "eslint"
+    ],
+    "**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html)": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
