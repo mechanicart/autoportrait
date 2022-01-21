@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { breakpoints } from '../ThemeContext';
 
@@ -48,12 +49,20 @@ const Button = styled.button`
   }
 `;
 
-export const NavBar: FC = () => (
-  <nav>
-    <List>
-      <Item>Home</Item>
-      <Item>About</Item>
-    </List>
-    <Button>BTN</Button>
-  </nav>
-);
+export const NavBar: FC = () => {
+  const navigate = useNavigate();
+  const onClick = useCallback(
+    (route: string): void => navigate(`${route}`),
+    [navigate],
+  );
+
+  return (
+    <nav>
+      <List>
+        <Item onClick={() => onClick('/')}>Home</Item>
+        <Item onClick={() => onClick('/about')}>About</Item>
+      </List>
+      <Button>BTN</Button>
+    </nav>
+  );
+};
