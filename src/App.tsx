@@ -1,4 +1,11 @@
 import { FC } from 'react';
-import { Main } from './pages/Main';
+import { useRoutes } from 'react-router-dom';
+import { Main, About } from './pages';
 
-export const App: FC = () => <Main />;
+export const App: FC = () => {
+  const routes = useRoutes([
+    { path: '/', element: <Main /> },
+    { path: 'about', element: <About /> },
+  ]);
+  return routes;
+};
