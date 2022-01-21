@@ -4,16 +4,14 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
-    project: [
-      './tsconfig.json'
-    ]
+    project: ['./tsconfig.json'],
   },
   extends: [
-    "prettier",
-    "prettier/prettier",
-    "plugin:prettier/recommended",
+    'prettier',
+    'prettier/prettier',
+    'plugin:prettier/recommended',
     'eslint-config-prettier',
     'eslint:recommended',
     'plugin:react/recommended',
@@ -21,44 +19,41 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'airbnb',
-    'airbnb-typescript'
+    'airbnb-typescript',
   ],
   rules: {
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'operator-linebreak': [2, 'after'],
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/function-component-definition': [
       2,
       {
-        'namedComponents': 'arrow-function'
-      }
+        namedComponents: 'arrow-function',
+      },
     ],
     'no-restricted-imports': [
       'error',
       {
-        'paths': [
+        paths: [
           {
-            'name': 'styled-components',
-            'message': 'Please import from styled-components/macro.'
-          }
+            name: 'styled-components',
+            message: 'Please import from styled-components/macro.',
+          },
         ],
-        'patterns': [
-          '!styled-components/macro'
-        ]
-      }
-    ]
+        patterns: ['!styled-components/macro'],
+      },
+    ],
   },
-  plugins: [
-    'react',
-    'react-hooks'
-  ],
+  plugins: ['react', 'react-hooks'],
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   env: {
-    browser: true
-  }
-}
+    browser: true,
+  },
+};
