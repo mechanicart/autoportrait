@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { breakpoints } from '../ThemeContext';
 
@@ -17,10 +17,14 @@ const List = styled.ul`
   }
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ 'data-active'?: boolean }>`
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
+
+  &[data-active] {
+    background-color: aquamarine;
+  }
 
   @media screen and ${breakpoints.mobileM} {
     width: 100%;
@@ -51,6 +55,8 @@ const Button = styled.button`
 
 export const NavBar: FC = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   const onClick = useCallback(
     (route: string): void => navigate(`${route}`),
     [navigate],
@@ -59,8 +65,18 @@ export const NavBar: FC = () => {
   return (
     <nav>
       <List>
-        <Item onClick={() => onClick('/')}>Home</Item>
-        <Item onClick={() => onClick('/about')}>About</Item>
+        <Item
+          data-active={pathname === '/' || undefined}
+          onClick={() => onClick('/')}
+        >
+          Home
+        </Item>
+        <Item
+          data-active={pathname === '/about' || undefined}
+          onClick={() => onClick('/about')}
+        >
+          About
+        </Item>
       </List>
       <Button>BTN</Button>
     </nav>
