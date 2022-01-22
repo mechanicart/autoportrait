@@ -1,7 +1,7 @@
-import { FC, useCallback } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
 import styled from 'styled-components/macro';
 import { breakpoints } from '../ThemeContext';
+import { useNavBar } from './useNavBar';
 
 const List = styled.ul`
   list-style-type: none;
@@ -54,29 +54,15 @@ const Button = styled.button`
 `;
 
 export const NavBar: FC = () => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
-  const onClick = useCallback(
-    (route: string): void => navigate(`${route}`),
-    [navigate],
-  );
-
+  const { items } = useNavBar();
   return (
     <nav>
       <List>
-        <Item
-          data-active={pathname === '/' || undefined}
-          onClick={() => onClick('/')}
-        >
-          Home
-        </Item>
-        <Item
-          data-active={pathname === '/about' || undefined}
-          onClick={() => onClick('/about')}
-        >
-          About
-        </Item>
+        {items.map(({ dataActive, onClick, title }) => (
+          <Item key={title} data-active={dataActive} onClick={onClick}>
+            {title}
+          </Item>
+        ))}
       </List>
       <Button>BTN</Button>
     </nav>
