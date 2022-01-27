@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { Page } from '../components/Page';
 
 const Header = styled.h1`
-  font-size: 2em;
+  font-size: 2rem;
 `;
 
 export const About: FC = () => (

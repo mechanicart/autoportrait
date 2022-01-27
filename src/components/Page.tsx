@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components/macro';
 import { NavBar } from './NavBar';
 import { Logo } from './Logo';
+import { breakpoints } from './ThemeContext';
 
 const Header = styled.header`
   display: flex;
@@ -14,12 +15,22 @@ const Header = styled.header`
 
   width: 100%;
   background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
+
+  @media screen and ${breakpoints.mobileM} {
+    align-items: flex-start;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  place-self: flex-start;
 `;
 
 export const Page: FC = ({ children }) => (
   <>
     <Header>
-      <Logo />
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
       <NavBar />
     </Header>
     {children}

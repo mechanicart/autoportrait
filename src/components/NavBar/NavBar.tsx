@@ -1,9 +1,23 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components/macro';
+import { Menu } from '../Menu';
 import { breakpoints } from '../ThemeContext';
 import { useNavBar } from './useNavBar';
+import CloseSVG from '../../assets/icons/close.svg';
 
-const List = styled.ul`
+const Nav = styled.nav`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  @media screen and ${breakpoints.mobileM} {
+    flex-direction: column;
+    padding-top: 12px;
+  }
+`;
+
+const List = styled.ul<{ 'data-open'?: boolean }>`
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -14,16 +28,25 @@ const List = styled.ul`
     flex-direction: column;
     height: auto;
     gap: 0px;
+    display: none;
+
+    &[data-open] {
+      display: block;
+    }
   }
 `;
 
 const Item = styled.li<{ 'data-active'?: boolean }>`
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
 
   &[data-active] {
-    background-color: aquamarine;
+    font-weight: bold;
+    font-family: 'Dewi Expanded' sans-serif;
+    text-decoration: none;
   }
 
   @media screen and ${breakpoints.mobileM} {
@@ -41,30 +64,32 @@ const Item = styled.li<{ 'data-active'?: boolean }>`
 
 const Button = styled.button`
   display: none;
-  position: absolute;
-  right: 10px;
-  top: 7px;
-  padding: 5px;
-  color: #000;
-  font-size: 18px;
+  background-color: transparent;
+  place-self: end;
+  padding: 0;
 
   @media screen and ${breakpoints.mobileM} {
     display: block;
+    border: none;
   }
 `;
 
 export const NavBar: FC = () => {
   const { items } = useNavBar();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggleList = () => setIsOpen(!isOpen);
+
   return (
-    <nav>
-      <List>
+    <Nav>
+      <Button onClick={toggleList}>{isOpen ? <CloseSVG /> : <Menu />}</Button>
+      <List data-open={isOpen || undefined}>
         {items.map(({ dataActive, onClick, title }) => (
           <Item key={title} data-active={dataActive} onClick={onClick}>
             {title}
           </Item>
         ))}
       </List>
-      <Button>BTN</Button>
-    </nav>
+    </Nav>
   );
 };
