@@ -18,7 +18,7 @@ export const AppStyle = createGlobalStyle`
     justify-content: center;
     height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: background 0.2s ease-in, color 0.2s ease-in;
   }
