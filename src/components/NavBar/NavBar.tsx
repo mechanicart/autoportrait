@@ -12,8 +12,8 @@ const Nav = styled.nav`
   justify-content: flex-end;
 
   @media screen and ${breakpoints.mobileM} {
+    width: 100%;
     flex-direction: column;
-    padding-top: 12px;
   }
 `;
 
@@ -70,6 +70,7 @@ const Button = styled.button`
 
   @media screen and ${breakpoints.mobileM} {
     display: block;
+    padding-top: 12px;
     border: none;
   }
 `;
