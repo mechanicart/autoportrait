@@ -8,18 +8,17 @@ const Header = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
   top: 0;
   padding: 16px;
   position: fixed;
-
+  background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue) bottom
+    no-repeat;
+  background-size: 100% 5px;
   width: 100%;
-  background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
 
   @media screen and ${breakpoints.mobileM} {
     flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
+    background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
   }
 `;
 
