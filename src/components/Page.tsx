@@ -25,6 +25,7 @@ const Header = styled.header`
 
 const LogoWrapper = styled.div`
   place-self: flex-start;
+  z-index: 10;
 `;
 
 export const Page: FC = ({ children }) => (

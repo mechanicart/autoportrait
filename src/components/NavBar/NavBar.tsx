@@ -14,6 +14,11 @@ const Nav = styled.nav`
   @media screen and ${breakpoints.mobileM} {
     width: 100%;
     flex-direction: column;
+    position: absolute;
+    padding: 20px;
+    right: 0;
+    top: 0;
+    background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
   }
 `;
 
