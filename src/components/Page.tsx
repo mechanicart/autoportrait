@@ -16,7 +16,7 @@ const Header = styled.header`
   background-size: 100% 5px;
   width: 100%;
 
-  @media screen and ${breakpoints.mobileM} {
+  @media screen and ${breakpoints.mobileL} {
     flex-direction: column;
     background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
   }

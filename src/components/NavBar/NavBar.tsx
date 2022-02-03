@@ -11,7 +11,7 @@ const Nav = styled.nav`
   flex-direction: row;
   justify-content: flex-end;
 
-  @media screen and ${breakpoints.mobileM} {
+  @media screen and ${breakpoints.mobileL} {
     width: 100%;
     flex-direction: column;
     position: absolute;
@@ -29,7 +29,7 @@ const List = styled.ul<{ 'data-open'?: boolean }>`
   align-items: center;
   gap: 20px;
 
-  @media screen and ${breakpoints.mobileM} {
+  @media screen and ${breakpoints.mobileL} {
     flex-direction: column;
     height: auto;
     gap: 0px;
@@ -54,7 +54,7 @@ const Item = styled.li<{ 'data-active'?: boolean }>`
     text-decoration: none;
   }
 
-  @media screen and ${breakpoints.mobileM} {
+  @media screen and ${breakpoints.mobileL} {
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.555);
     text-align: center;
@@ -74,7 +74,7 @@ const Button = styled.button`
   place-self: end;
   padding: 0;
 
-  @media screen and ${breakpoints.mobileM} {
+  @media screen and ${breakpoints.mobileL} {
     display: block;
     padding-top: 12px;
     border: none;
