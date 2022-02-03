@@ -15,12 +15,8 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  import * as React from 'react';
+  import { ReactElement, SVGProps } from 'react';
 
-  export const ReactComponent: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & { title?: string }
-  >;
-
-  const src: string;
-  export default src;
+  const content: (props: SVGProps<SVGElement>) => ReactElement;
+  export default content;
 }
