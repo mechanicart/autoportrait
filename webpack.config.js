@@ -21,6 +21,7 @@ module.exports = {
       filename: 'index.html',
       template: path.join(__dirname, 'public', 'index.html'),
       chunks: ['main'],
+      favicon: './public/favicon.png',
     }),
   ],
   module: {
