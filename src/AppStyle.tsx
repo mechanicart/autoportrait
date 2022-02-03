@@ -23,15 +23,3 @@ export const AppStyle = createGlobalStyle`
     transition: background 0.2s ease-in, color 0.2s ease-in;
   }
 `;
-
-// @media screen and ${breakpoints.laptop} {
-//   width: 800px;
-//   border: solid;
-//   border-color: brown;
-// }
-
-// @media screen and ${breakpoints.desktop} {
-//   width: 1400px;
-//   border: solid;
-//   border-color: plum;
-// }
