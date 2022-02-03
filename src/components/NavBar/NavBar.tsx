@@ -71,7 +71,7 @@ const Item = styled.li<{ 'data-active'?: boolean }>`
 const Button = styled.button`
   display: none;
   background-color: transparent;
-  place-self: end;
+  place-self: flex-end;
   padding: 0;
 
   @media screen and ${breakpoints.mobileL} {
