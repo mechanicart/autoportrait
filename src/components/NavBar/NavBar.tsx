@@ -59,6 +59,7 @@ const Item = styled.li<{ 'data-active'?: boolean }>`
     border-top: 1px solid rgba(255, 255, 255, 0.555);
     text-align: center;
     padding: 20px 0;
+    color: #fafafa;
 
     :nth-child(1) {
       border-top: 1px solid rgba(255, 255, 255, 0.555);
