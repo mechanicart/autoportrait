@@ -87,7 +87,7 @@ export const NavBar: FC = () => {
   const { items } = useNavBar();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleList = () => setIsOpen(!isOpen);
+  const toggleList = (): void => setIsOpen(!isOpen);
 
   return (
     <Nav>
