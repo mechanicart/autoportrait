@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components/macro';
-import { NavBar } from './NavBar';
+
 import { Logo } from './Logo';
+import { NavBar } from './NavBar';
 import { breakpoints } from './ThemeContext';
 
 const Header = styled.header`

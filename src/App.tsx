@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useRoutes } from 'react-router-dom';
+
 import { Main, About } from './pages';
 
 export const App: FC = () => {

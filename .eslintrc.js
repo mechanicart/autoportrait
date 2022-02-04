@@ -22,7 +22,6 @@ module.exports = {
     'airbnb-typescript',
   ],
   rules: {
-    'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -44,6 +43,25 @@ module.exports = {
           },
         ],
         patterns: ['!styled-components/macro'],
+      },
+    ],
+    'import/prefer-default-export': 'off',
+    'import/no-default-export': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          'parent',
+          ['sibling', 'index'],
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
   },

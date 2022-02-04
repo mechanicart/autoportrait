@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
+
 import { Page } from '../components/Page';
 
 const gradient = keyframes`

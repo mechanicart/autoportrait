@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
+
 import { darkTheme, lightTheme } from './theme';
 import { useThemeContext } from './useThemeContext';
 

@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components/macro';
-import { breakpoints } from '../ThemeContext';
-import { useNavBar } from './useNavBar';
+
 import CloseSVG from '../../assets/icons/close.svg';
 import MenuSVG from '../../assets/icons/menu.svg';
+import { breakpoints } from '../ThemeContext';
+
+import { useNavBar } from './useNavBar';
 
 const Nav = styled.nav`
   flex-grow: 1;
