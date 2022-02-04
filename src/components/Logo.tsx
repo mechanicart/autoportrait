@@ -1,6 +1,11 @@
 import { FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LogoSVG from '../assets/icons/logo.svg';
+import styled from 'styled-components/macro';
+import SVG from '../assets/icons/logo.svg';
+
+const LogoSVG = styled(SVG)`
+  cursor: pointer;
+`;
 
 export const Logo: FC = memo(() => {
   const navigate = useNavigate();
