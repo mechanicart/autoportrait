@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components/macro';
-import { Menu } from '../Menu';
 import { breakpoints } from '../ThemeContext';
 import { useNavBar } from './useNavBar';
 import CloseSVG from '../../assets/icons/close.svg';
+import MenuSVG from '../../assets/icons/menu.svg';
 
 const Nav = styled.nav`
   flex-grow: 1;
@@ -89,7 +89,9 @@ export const NavBar: FC = () => {
 
   return (
     <Nav>
-      <Button onClick={toggleList}>{isOpen ? <CloseSVG /> : <Menu />}</Button>
+      <Button onClick={toggleList}>
+        {isOpen ? <CloseSVG /> : <MenuSVG />}
+      </Button>
       <List data-open={isOpen || undefined}>
         {items.map(({ dataActive, onClick, title }) => (
           <Item key={title} data-active={dataActive} onClick={onClick}>
