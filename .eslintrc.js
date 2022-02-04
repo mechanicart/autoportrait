@@ -27,6 +27,12 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'operator-linebreak': [2, 'after'],
     'jsx-quotes': ['error', 'prefer-single'],
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
+      {
+        allowExpressions: true,
+      },
+    ],
     'react/function-component-definition': [
       2,
       {
