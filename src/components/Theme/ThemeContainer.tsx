@@ -2,11 +2,11 @@ import { FC, useMemo } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 
 import { useTheme } from './hooks';
-import { darkTheme, lightTheme, ThemeContext } from './theme';
+import { DARK_THEME, LIGHT_THEME, ThemeContext } from './theme';
 
 export const ThemeContainer: FC = ({ children }) => {
   const { theme, toggleTheme } = useTheme();
-  const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
+  const themeMode = theme === 'lightTheme' ? LIGHT_THEME : DARK_THEME;
   const contextValue = useMemo(
     () => ({ theme, toggleTheme }),
     [theme, toggleTheme],

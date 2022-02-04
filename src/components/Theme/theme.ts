@@ -11,14 +11,14 @@ export function isThemeMode(themeMode: string): themeMode is ThemeMode {
   return ['lightTheme', 'darkTheme'].indexOf(themeMode) !== -1;
 }
 
-export const lightTheme: DefaultTheme = {
+export const LIGHT_THEME: DefaultTheme = {
   body: '#E2E2E2',
   text: '#363537',
   toggleBorder: '#FFF',
   gradient: 'linear-gradient(#39598A, #79D7ED)',
 };
 
-export const darkTheme: DefaultTheme = {
+export const DARK_THEME: DefaultTheme = {
   body: '#363537',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
