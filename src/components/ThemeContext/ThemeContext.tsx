@@ -1,32 +1,24 @@
-import { FC } from 'react';
+import { createContext, FC, useMemo } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 
 import { darkTheme, lightTheme } from './theme';
-import { useThemeContext } from './useThemeContext';
+import { ThemeMode, useThemeContext } from './useThemeContext';
+
+export type ContextType = { theme: ThemeMode; toggleTheme: () => void };
+
+export const Context = createContext<ContextType | undefined>(undefined);
 
 export const ThemeContext: FC = ({ children }) => {
-  const { theme } = useThemeContext();
+  const { theme, toggleTheme } = useThemeContext();
   const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
+  const contextValue = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme],
+  );
 
   return (
     <ThemeProvider theme={themeMode}>
-      {/* <button
-        type='button'
-        tabIndex={0}
-        onKeyDown={toggleTheme}
-        onClick={toggleTheme}
-      >
-        {theme === 'darkTheme' ? (
-          <span aria-label='Light mode' role='img'>
-            🌞
-          </span>
-        ) : (
-          <span aria-label='Dark mode' role='img'>
-            🌜
-          </span>
-        )}
-      </button> */}
-      {children}
+      <Context.Provider value={contextValue}>{children}</Context.Provider>
     </ThemeProvider>
   );
 };

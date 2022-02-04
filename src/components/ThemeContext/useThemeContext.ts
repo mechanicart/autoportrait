@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-type ThemeMode = 'lightTheme' | 'darkTheme';
+export type ThemeMode = 'lightTheme' | 'darkTheme';
 
 type UseThemeContext = {
   theme: ThemeMode;
