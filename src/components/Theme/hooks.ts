@@ -1,17 +1,18 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useContext } from 'react';
 
-export type ThemeMode = 'lightTheme' | 'darkTheme';
+import {
+  isThemeMode,
+  ThemeContainerType,
+  ThemeContext,
+  ThemeMode,
+} from './theme';
 
-type UseThemeContext = {
+type UseTheme = {
   theme: ThemeMode;
   toggleTheme: () => void;
 };
 
-function isThemeMode(themeMode: string): themeMode is ThemeMode {
-  return ['lightTheme', 'darkTheme'].indexOf(themeMode) !== -1;
-}
-
-export const useThemeContext = (): UseThemeContext => {
+export const useTheme = (): UseTheme => {
   const [theme, setTheme] = useState<ThemeMode>('lightTheme');
 
   const changeTheme = useCallback(
@@ -43,4 +44,10 @@ export const useThemeContext = (): UseThemeContext => {
     theme,
     toggleTheme,
   };
+};
+
+export const useThemeContainer = (): ThemeContainerType => {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error('Failed!');
+  return context;
 };

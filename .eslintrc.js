@@ -70,6 +70,10 @@ module.exports = {
         },
       },
     ],
+    'object-curly-newline': [
+      'error',
+      { ImportDeclaration: { multiline: true } },
+    ],
   },
   plugins: ['react', 'react-hooks'],
   settings: {

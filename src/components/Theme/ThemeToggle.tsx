@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { useTContext } from './useTContext';
+import { useThemeContainer } from './hooks';
 
 export const ThemeToggle: FC = () => {
-  const { toggleTheme, theme } = useTContext();
+  const { toggleTheme, theme } = useThemeContainer();
   return (
     <button
       type='button'

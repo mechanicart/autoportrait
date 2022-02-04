@@ -3,8 +3,7 @@ import styled from 'styled-components/macro';
 
 import CloseSVG from '../../assets/icons/close.svg';
 import MenuSVG from '../../assets/icons/menu.svg';
-import { breakpoints } from '../ThemeContext';
-import { ThemeToggle } from '../ThemeContext/ThemeToggle';
+import { breakpoints, ThemeToggle } from '../Theme';
 
 import { useNavBar } from './useNavBar';
 

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
 import { AppStyle } from './AppStyle';
-import { ThemeContext } from './components/ThemeContext';
+import { ThemeContainer } from './components/Theme';
 
 export const AppContainer: FC = ({ children }) => (
-  <ThemeContext>
+  <ThemeContainer>
     <AppStyle />
     {children}
-  </ThemeContext>
+  </ThemeContainer>
 );

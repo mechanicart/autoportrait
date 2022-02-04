@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 import { Logo } from './Logo';
 import { NavBar } from './NavBar';
-import { breakpoints } from './ThemeContext';
+import { breakpoints } from './Theme';
 
 const Header = styled.header`
   display: flex;
