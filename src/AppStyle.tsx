@@ -16,9 +16,10 @@ export const AppStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0 20px;
+    padding-top: 100px;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: background 0.2s ease-in, color 0.2s ease-in;
   }
