@@ -1,11 +1,20 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import styled from 'styled-components/macro';
 
 import { Logo } from './Logo';
 import { NavBar } from './NavBar';
-import { breakpoints } from './Theme';
+import {
+  breakpoints,
+  useThemeContainer,
+  DARK_THEME,
+  LIGHT_THEME,
+} from './Theme';
+import { ThemeMode } from './Theme/theme';
 
-const Header = styled.header`
+const Header = styled.header<{
+  'data-theme': ThemeMode;
+  'data-background': string;
+}>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,9 +22,15 @@ const Header = styled.header`
   padding: 16px;
   position: fixed;
   background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue) bottom
-    no-repeat;
+    #363537 no-repeat;
   background-size: 100% 5px;
   width: 100%;
+
+  &[data-theme='lightTheme'] {
+    background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue) bottom
+      #e2e2e2 no-repeat;
+    background-size: 100% 5px;
+  }
 
   @media screen and ${breakpoints.mobileL} {
     flex-direction: column;
@@ -28,14 +43,22 @@ const LogoWrapper = styled.div`
   z-index: 10;
 `;
 
-export const Page: FC = ({ children }) => (
-  <>
-    <Header>
-      <LogoWrapper>
-        <Logo />
-      </LogoWrapper>
-      <NavBar />
-    </Header>
-    {children}
-  </>
-);
+export const Page: FC = ({ children }) => {
+  const { theme } = useThemeContainer();
+  const backgroundColor = useMemo(
+    () => (theme === 'darkTheme' ? DARK_THEME.body : LIGHT_THEME.body),
+    [theme],
+  );
+  return (
+    <>
+      {/* TODO: need to use a color from the parameter */}
+      <Header data-theme={theme} data-background={backgroundColor}>
+        <LogoWrapper>
+          <Logo />
+        </LogoWrapper>
+        <NavBar />
+      </Header>
+      {children}
+    </>
+  );
+};
