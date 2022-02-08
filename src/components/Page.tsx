@@ -25,6 +25,7 @@ const Header = styled.header<{
     #363537 no-repeat;
   background-size: 100% 5px;
   width: 100%;
+  transition: background 0.2s ease-in, color 0.2s ease-in;
 
   &[data-theme='lightTheme'] {
     background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue) bottom
