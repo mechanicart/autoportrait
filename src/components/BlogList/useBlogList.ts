@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
-import { createHttpClient } from '../../../libs/httpClient/httpClient';
-import { Todo, createPlaceHolderServiceClient } from '../../clients';
+import { Todo } from '../../clients';
+import { useBlogContainer } from '../BlogContainer';
 
-export type BlogList = {
+type UseBlogList = {
   todo: ReadonlyArray<Todo>;
 };
 
-export const useBlogList = (): BlogList => {
+export const useBlogList = (): UseBlogList => {
   const [todo, setTodo] = useState<ReadonlyArray<Todo>>([]);
-  const httpClient = createHttpClient();
-  const placeHolderServiceClient = createPlaceHolderServiceClient(
-    'https://jsonplaceholder.typicode.com',
-    httpClient,
+
+  const { getPosts } = useBlogContainer();
+  const fetchData = useCallback(
+    async (): Promise<void> => setTodo(await getPosts()),
+    [getPosts],
   );
+
   useEffect(() => {
-    placeHolderServiceClient.getPosts().then((todos) => setTodo(todos));
-  });
+    fetchData();
+  }, [fetchData]);
 
   return {
     todo,

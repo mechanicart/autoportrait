@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components/macro';
 
+import { BlogListContainer } from '../components/BlogContainer';
 import { BlogList } from '../components/BlogList/BlogList';
 import { Page } from '../components/Page';
 
@@ -11,6 +12,8 @@ const Header = styled.h1`
 export const Blog: FC = () => (
   <Page>
     <Header>Blog</Header>
-    <BlogList />
+    <BlogListContainer>
+      <BlogList />
+    </BlogListContainer>
   </Page>
 );
