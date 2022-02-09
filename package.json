@@ -10,7 +10,7 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|tsx)\"",
+    "lint": "eslint --ignore-path .eslintignore \"**/*.+(ts|tsx)\"",
     "validate": "npm-run-all --parallel check-format lint",
     "prepare": "husky install"
   },
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",

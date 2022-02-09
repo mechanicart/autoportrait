@@ -21,6 +21,11 @@ export const useNavBar = (): UseNavBar => {
         title: 'Home',
       },
       {
+        dataActive: pathname === '/blog' || undefined,
+        onClick: () => navigate('/blog'),
+        title: 'Blog',
+      },
+      {
         dataActive: pathname === '/about' || undefined,
         onClick: () => navigate('/about'),
         title: 'About',
