@@ -1,10 +1,16 @@
 import { createContext, FC, useMemo } from 'react';
 
 import { createHttpClient } from '../../../libs/httpClient/httpClient';
-import { createPlaceHolderServiceClient, Todo } from '../../clients';
+import {
+  createPlaceHolderServiceClient,
+  createMediumServiceClient,
+  Todo,
+} from '../../clients';
+import { MediumResponse } from '../../clients/MediumServiceClient';
 
 export type BlogContainerContext = {
-  getPosts: () => Promise<readonly Todo[]>;
+  getTodo: () => Promise<ReadonlyArray<Todo>>;
+  getMediumPosts: () => Promise<MediumResponse>;
 };
 
 export const BlogContext = createContext<BlogContainerContext | undefined>(
@@ -13,12 +19,19 @@ export const BlogContext = createContext<BlogContainerContext | undefined>(
 
 export const BlogListContainer: FC = ({ children }) => {
   const httpClient = createHttpClient();
-  const { getPosts } = createPlaceHolderServiceClient(
+  const { getTodo } = createPlaceHolderServiceClient(
     'https://jsonplaceholder.typicode.com',
     httpClient,
   );
+  const { getMediumPosts } = createMediumServiceClient(
+    'https://api.rss2json.com/v1/api.json',
+    httpClient,
+  );
 
-  const blogListContainer = useMemo(() => ({ getPosts }), [getPosts]);
+  const blogListContainer = useMemo(
+    () => ({ getTodo, getMediumPosts }),
+    [getTodo, getMediumPosts],
+  );
   return (
     <BlogContext.Provider value={blogListContainer}>
       {children}
