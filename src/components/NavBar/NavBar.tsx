@@ -7,7 +7,7 @@ import { breakpoints, ThemeToggle } from '../Theme';
 
 import { useNavBar } from './useNavBar';
 
-const Nav = styled.nav`
+const Nav = styled.nav<{ 'data-open'?: boolean }>`
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -20,7 +20,9 @@ const Nav = styled.nav`
     padding: 20px;
     right: 0;
     top: 0;
-    background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
+    &[data-open] {
+      background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
+    }
   }
 `;
 
@@ -84,13 +86,13 @@ const Button = styled.button`
 `;
 
 export const NavBar: FC = () => {
-  const { items } = useNavBar();
+  const { items, isSettingVisible } = useNavBar();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleList = (): void => setIsOpen(!isOpen);
 
   return (
-    <Nav>
+    <Nav data-open={isOpen || undefined}>
       <Button onClick={toggleList}>
         {isOpen ? <CloseSVG /> : <MenuSVG />}
       </Button>
@@ -100,8 +102,8 @@ export const NavBar: FC = () => {
             {title}
           </Item>
         ))}
+        {isSettingVisible && <ThemeToggle />}
       </List>
-      <ThemeToggle />
     </Nav>
   );
 };

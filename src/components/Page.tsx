@@ -35,7 +35,13 @@ const Header = styled.header<{
 
   @media screen and ${breakpoints.mobileL} {
     flex-direction: column;
+    background-size: auto;
     background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
+
+    &[data-theme='lightTheme'] {
+      background-size: auto;
+      background: linear-gradient(45deg, rgb(156, 14, 156), midnightblue);
+    }
   }
 `;
 

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 type UseNavBar = Readonly<{
@@ -7,11 +7,13 @@ type UseNavBar = Readonly<{
     onClick: () => void;
     title: string;
   }>;
+  isSettingVisible: boolean;
 }>;
 
 export const useNavBar = (): UseNavBar => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [isSettingVisible, setSettingVisible] = useState<boolean>(false);
 
   const items = useMemo(
     () => [
@@ -30,11 +32,17 @@ export const useNavBar = (): UseNavBar => {
         onClick: () => navigate('/about'),
         title: 'About',
       },
+      {
+        dataActive: undefined,
+        onClick: () => setSettingVisible(!isSettingVisible),
+        title: 'Settings',
+      },
     ],
-    [navigate, pathname],
+    [navigate, setSettingVisible, pathname, isSettingVisible],
   );
 
   return {
     items,
+    isSettingVisible,
   };
 };
