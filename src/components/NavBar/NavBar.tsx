@@ -84,7 +84,7 @@ const Button = styled.button`
 `;
 
 export const NavBar: FC = () => {
-  const { items } = useNavBar();
+  const { items, isSettingVisible } = useNavBar();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleList = (): void => setIsOpen(!isOpen);
@@ -100,8 +100,8 @@ export const NavBar: FC = () => {
             {title}
           </Item>
         ))}
+        {isSettingVisible && <ThemeToggle />}
       </List>
-      <ThemeToggle />
     </Nav>
   );
 };
