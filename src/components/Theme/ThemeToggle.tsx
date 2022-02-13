@@ -6,20 +6,23 @@ import { useThemeContainer } from './hooks';
 
 const InputWrapper = styled.div`
   display: flex;
-  width: 100%;
+  position: absolute;
+  top: 90px;
+  gap: 20px;
+  right: 16px;
+  background: midnightblue;
+  padding: 20px 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-size: 20px;
-  border-top: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.555);
 
   @media screen and ${breakpoints.mobileL} {
-    border-top: 1px solid rgba(255, 255, 255, 0.555);
-    border-left: none;
-    padding: 20px 0;
+    width: 100%;
+    position: inherit;
+    padding: 20px 0px;
     justify-content: space-evenly;
     color: #fafafa;
-    background-color: rgb(31 25 114 / 50%);
+    background-color: rgb(32 31 40 / 20%);
   }
 `;
 const InputLabel = styled.label`
