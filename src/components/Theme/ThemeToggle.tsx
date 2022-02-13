@@ -68,7 +68,7 @@ export const ThemeToggle: FC = () => {
         checked={theme === 'darkTheme'}
         onChange={toggleTheme}
       />
-      <InputLabel htmlFor='input'>Select</InputLabel>
+      <InputLabel htmlFor='input'>Dark mode</InputLabel>
     </InputWrapper>
   );
 };
