@@ -3,12 +3,14 @@ import styled from 'styled-components/macro';
 
 import { useThemeContainer } from './hooks';
 
-const InputWrapper = styled.div``;
+const InputWrapper = styled.div`
+  display: inline-flex;
+`;
 const InputLabel = styled.label`
   display: inline-block;
   position: relative;
-  height: 44px;
-  width: 90px;
+  height: 23px;
+  width: 48px;
   background-color: #fff;
   cursor: pointer;
   font-size: 0;
@@ -19,11 +21,11 @@ const InputLabel = styled.label`
   :after {
     content: '';
     display: block;
-    height: 40px;
-    width: 40px;
+    height: 19px;
+    width: 19px;
     position: absolute;
     top: 2px;
-    right: 48px;
+    right: 27px;
     border-radius: 50%;
     background-color: #e8e8e8;
     box-shadow: 2px 0px 0px rgba(0, 0, 0, 0.15);
