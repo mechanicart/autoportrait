@@ -1,10 +1,26 @@
 import { FC } from 'react';
 import styled from 'styled-components/macro';
 
+import { breakpoints } from '.';
 import { useThemeContainer } from './hooks';
 
 const InputWrapper = styled.div`
-  display: inline-flex;
+  display: flex;
+  width: 100%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-top: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.555);
+
+  @media screen and ${breakpoints.mobileL} {
+    border-top: 1px solid rgba(255, 255, 255, 0.555);
+    border-left: none;
+    padding: 20px 0;
+    justify-content: space-evenly;
+    color: #fafafa;
+    background-color: rgb(31 25 114 / 50%);
+  }
 `;
 const InputLabel = styled.label`
   display: inline-block;
@@ -62,6 +78,7 @@ export const ThemeToggle: FC = () => {
   const { toggleTheme, theme } = useThemeContainer();
   return (
     <InputWrapper>
+      Dark mode
       <Input
         id='input'
         type='checkbox'
