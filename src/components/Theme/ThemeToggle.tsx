@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components/macro';
 
-import { breakpoints } from '.';
+import { breakpoints } from './breakpoints';
 import { useThemeContainer } from './hooks';
 
 const InputWrapper = styled.div`
