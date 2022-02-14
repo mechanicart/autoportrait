@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -23,6 +24,7 @@ module.exports = {
       chunks: ['main'],
       favicon: './public/favicon.png',
     }),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
@@ -44,6 +46,9 @@ module.exports = {
         use: ['@svgr/webpack', 'svgo-loader'],
       },
     ],
+  },
+  optimization: {
+    minimize: true,
   },
   devtool: 'inline-source-map',
   devServer: {
