@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -17,12 +16,6 @@ module.exports = {
   plugins: [
     new ESLintPlugin({
       extensions: ['.tsx', '.ts', '.js'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.join(__dirname, 'public', 'index.html'),
-      chunks: ['main'],
-      favicon: './public/favicon.png',
     }),
     new CleanWebpackPlugin(),
   ],
@@ -47,13 +40,7 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimize: true,
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    hot: true,
-    port: 9000,
-  },
+  // optimization: {
+  //   minimize: true,
+  // },
 };
