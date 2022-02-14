@@ -5,8 +5,8 @@
   "description": "",
   "main": "./src/index.tsx",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.common.js",
-    "build": "webpack --config webpack.common.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
