@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
@@ -9,19 +9,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  mode: 'development',
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new ESLintPlugin({
       extensions: ['.tsx', '.ts', '.js'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.join(__dirname, 'public', 'index.html'),
-      chunks: ['main'],
-      favicon: './public/favicon.png',
     }),
   ],
   module: {
@@ -44,11 +37,5 @@ module.exports = {
         use: ['@svgr/webpack', 'svgo-loader'],
       },
     ],
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    hot: true,
-    port: 9000,
   },
 };
